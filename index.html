@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+    *{
+        font-family: "DM Sans", sans-serif;
+    }
+    .navbar{
+        width: 100%;
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-color: black;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar-links{
+        width: 40%;
+        height: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        display: flex;
+    }
+    .navbar-links a{
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .navbar-links a i{
+        color: white;
+        font-size: 20px;
+    }
+    .navbar-logo{
+        width: 20%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar-logo img{
+        width: auto;
+        height: 100%;
+        object-fit: cover;
+    }
+    .home-banner{
+        width: 100%;
+        height: 100vh;
+        background-image:linear-gradient(rgb(0,0,0,0.5),rgb(0,0,0,0.5)), url(img/damac_image-resize_images.webp);
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .banner-contents{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .banner-contents h1{
+        font-size: 80px;
+        color: white;
+        font-weight: 700;
+        text-align: center;
+    }
+    .banner-contents p{
+        color: #fff;
+        font-size: 18px;
+    }
+    .bg-video-container {
+         position: relative;
+        width: 100%;
+        margin:auto;
+        }
+        .bg-video {
+         width: 100%;
+         height: auto;
+         object-fit: contain;
+        }
+        .home-section-one{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .home-section-one h1{
+        font-size: 60px;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        transition: 0.4s ease;
+    }
+    .home-section-one p{
+        color: #fff;
+        text-align: center;
+    }
+    .dark-nav{
+            background:rgb(0,0,0,0.5);
+            transition: 0.5s ease;
+            height: 80px;
+        }
+        .statistics-card{
+            width: 100%;
+            height: 150px;
+            background-color: #fff;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+        .statistics-card img{
+            width: 50px;
+            height: 50px;
+        }
+        .statistics-card h3{
+            font-weight: 700;
+            font-size: 18px;
+            color: black;
+        }
+        .statistics-card span{
+            font-size: 16px;
+            font-weight: 600;
+            color: #03a7d4;
+        }
+        .section-one{
+            background-color: black;
+        }
+        .why-dubai h1{
+            color: #fff;
+            font-size: 35px;
+            font-weight: 600;
+        }
+        .why-dubai p{
+            color: #d8d8d8;
+        }
+        .why-dubai h3{
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .section-two{
+            background-color: #222222;
+        }
+        .section-two h1{
+            font-size: 30px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .services-cards h3{
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            text-transform: uppercase;
+            align-self: flex-start;
+        }
+        .section-two a{
+            text-decoration: none;
+            height: 40px;
+            width: 40px;
+            align-self: flex-end;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+        .section-two a i{
+            color: #fff;
+        }
+        .service-card-1{
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            background-image:linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url(https://cdnap.gandalf.tech/agentportal/wp-content/uploads/2023/01/Foundations-of-Real-estate-_-Body-2-12-1-23-1024x640.jpg);
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            padding: 15px;
+            cursor: pointer;
+        }
+        .service-card-2{
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            background-image:linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url(https://www.rsnfinance.com/wp-content/uploads/2021/08/portrait-of-successful-business-team-working-in-office-1.jpg);
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 15px;
+        }
+        .service-card-3{
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            cursor: pointer;
+            background-image:linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url(https://blog.ipleaders.in/wp-content/uploads/2020/09/SEBI-Credit-Rating-Agencies-Regulations.jpg);
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            padding: 15px;
+        }
+        .service-card-4{
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            background-image:linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url(https://essentialdata.com/wp-content/uploads/pexels-mikhail-nilov-8297478.jpg);
+            background-size: cover;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            padding: 15px;
+        }
+        .dubai-top h1{
+            color: #fff;
+            font-size: 25px;
+        }
+        .dubai-top h3{
+            color: #fff;
+            font-weight: 600;
+            font-size: 20px;
+        }
+        .dubai-top p{
+            color: #e1e1e1;
+        }
+        .section-three{
+            background-color:white;
+        }
+        .featured-card-1{
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            background-image:linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url(https://www.morgansrealty.com/public/uploads/contents/45.jpg);
+            background-size: cover;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        .featured-card-2{
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            background-image:linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url(https://topaddress.ae/wp-content/uploads/2022/01/dubailand-district.webp);
+            background-size: cover;
+            display: flex;
+            padding: 20px;
+            align-items: flex-end;
+            padding-bottom: 15px;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .featured-card-3{
+            width: 100%;
+            height: 400px;
+            transition: all 0.4s ease;
+            border-radius: 10px;
+            background-image:linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url(https://www.mediaoffice.ae/-/media/2023/june/23-06/south-bay---image--2.jpg?h=1182&w=2100&hash=9409A80D629A2FC96CC92EACD5A9F95D);
+            background-size: cover;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .featured-card-4{
+            width: 100%;
+            height: 400px;
+            transition: all 0.4s ease;
+            border-radius: 10px;
+            background-image:linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url(https://turesta.com/storage/meydan-mall.jpg);
+            background-size: cover;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .featured-card-5{
+            width: 100%;
+            height: 400px;
+            transition: all 0.4s ease;
+            border-radius: 10px;
+            background-image:linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url(https://fnst.axflare.com/community/WEBP/QdomOvFxuC.webp);
+            background-size: cover;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .featured-card-6{
+            width: 100%;
+            height: 400px;
+            transition: all 0.4s ease;
+            border-radius: 10px;
+            background-image:linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url(https://www.telegraph.co.uk/content/dam/business/2023/06/01/TELEMMGLPICT000337884588_16856404095250_trans_NvBQzQNjv4BqYtkW4DzbCPM_hy4t4hQwrY-YqJpuh24YizWnVbthlIM.jpeg);
+            background-size: cover;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .section-three h1{
+            color: black;
+            font-weight: 700;
+        }
+        .section-three p{
+            text-align: center;
+            font-size: 18px;
+        }
+        .featured-card-1 h3{
+            font-size: 25px;
+            color: #fff;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+        .featured-card-2 h3{
+            font-size: 25px;
+            color: #fff;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+        .featured-card-3 h3{
+            font-size: 25px;
+            color: #fff;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+        .featured-card-4 h3{
+            font-size: 25px;
+            color: #fff;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+        .featured-card-5 h3{
+            font-size: 25px;
+            color: #fff;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+        .featured-card-6 h3{
+            font-size: 25px;
+            color: #fff;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+        .featured-cards a{
+            text-decoration: none;
+            height: 40px;
+            width: 40px;
+            align-self: flex-end;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            justify-content: center;
+            border: 2px solid #fff;
+            border-radius: 5px;
+        }
+        .featured-card-1:hover{
+            background-image: linear-gradient(rgb(0,0,0,0.6),rgb(0,0,0,0.6)),url(https://www.morgansrealty.com/public/uploads/contents/45.jpg);
+        }
+        .featured-card-2:hover{
+            background-image:linear-gradient(rgb(0,0,0,0.6),rgb(0,0,0,0.6)), url(https://topaddress.ae/wp-content/uploads/2022/01/dubailand-district.webp);
+        }
+        .featured-card-3:hover{
+            background-image:linear-gradient(rgb(0,0,0,0.6),rgb(0,0,0,0.6)), url(https://www.mediaoffice.ae/-/media/2023/june/23-06/south-bay---image--2.jpg?h=1182&w=2100&hash=9409A80D629A2FC96CC92EACD5A9F95D);
+        }
+        .featured-card-4:hover{
+            background-image:linear-gradient(rgb(0,0,0,0.6),rgb(0,0,0,0.6)), url(https://turesta.com/storage/meydan-mall.jpg);
+        }
+        .featured-card-5:hover{
+            background-image:linear-gradient(rgb(0,0,0,0.6),rgb(0,0,0,0.6)), url(https://fnst.axflare.com/community/WEBP/QdomOvFxuC.webp);
+        }
+        .featured-card-6:hover{
+            background-image:linear-gradient(rgb(0,0,0,0.6),rgb(0,0,0,0.6)), url(https://www.telegraph.co.uk/content/dam/business/2023/06/01/TELEMMGLPICT000337884588_16856404095250_trans_NvBQzQNjv4BqYtkW4DzbCPM_hy4t4hQwrY-YqJpuh24YizWnVbthlIM.jpeg);
+        }
+        .section-four{
+            background-color: black;
+        }
+        .section-four h2{
+            color: #fff;
+            width: 70%;
+            margin: auto;
+        }
+        .section-four form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .section-four form input{
+            width: 400px;
+            height: 50px;
+            border: hidden;
+            background-color: #222222;
+            color: #fff;
+            outline: none;
+            padding: 10px;
+        }
+        .section-four form button{
+            border-radius: 30px;
+            width: 160px;
+            padding: 5px;
+            height: 50px;
+            background-color: white;
+            border: hidden;
+            outline: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            transition: all 0.4s ease;
+
+        }
+        .section-four form button:hover{
+            background-color: black;
+            border: 1px solid white;
+            color: #fff;
+        }
+        .section-four form button i{
+            height: 35px;
+            width: 35px;
+            margin-left: 10px;
+            border-radius: 50%;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cdcccc;
+        }
+        .logo-footer{
+            width: auto;
+            height: 60px;
+        }
+        footer{
+            border-top: 1px solid rgb(71, 71, 71);
+        }
+        footer a {
+            text-decoration: none;
+        }
+        footer h5{
+            color: #fff;
+        }
+        @media(min-width:320px) and (max-width:480px){
+            .bg-video-container {
+  position: relative;
+  height: 80vh;
+  margin:auto;
+  width:100%;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home-section-one h1{
+    font-size: 40px;
+}
+.section-four form input{
+                width: 90%;
+            }
+            .navbar-links{
+                display: none;
+            }
+            .section-four h2{
+                width: 90%;
+            }
+            .featured-card-1{
+                height: 250px;
+            }
+            .featured-card-2{
+                height: 250px;
+            }
+            .featured-card-3{
+                height: 250px;
+            }
+            .featured-card-4{
+                height: 250px;
+            }
+            .featured-card-5{
+                height: 250px;
+            }
+            .featured-card-6{
+                height: 250px;
+            }
+        }
+</style>
+<body>
+    <div class="navbar" id="nav">
+        <div class="navbar-links">
+            <a href="">LAND</a>
+            <a href="">RESIDENTIAL</a>
+            <a href="">COMMERCE</a>
+        </div>
+        <div class="navbar-logo">
+            <img src="img/logo-2.png" alt="">
+        </div>
+        <div class="navbar-links">
+            <a href="">ABOUT</a>
+            <a href="">TEAM</a>
+            <a href="">CONTACT</a>
+        </div>
+    </div>
+    <div class="bg-video-container">
+        <video class="bg-video" autoplay muted loop>
+         <source src="img/lase-video.mp4"/>
+         </video>
+        <div class="home-section-one">
+            <h1 class="mb-3">Reliable. Honest. <br> Genuine.</h1>
+            <p>Dubai's leading brokerage, setting a new benchmark in service.</p>
+        </div>
+        </div>
+    <!-- <div class="home-banner">
+        <div class="banner-contents pb-3">
+            <h1 class="mb-3">Reliable. Honest. <br> Genuine.</h1>
+            <p>Dubai's leading brokerage, setting a new benchmark in service.</p>
+        </div>
+    </div> -->
+    <div class="section-one pt-5 pb-3">
+    <div class="container mt-3 mb-3">
+        <div class="row gx-4 gy-3">
+            <div class="col-md-3 col-6">
+                <div class="statistics-card">
+                    <img src="img/trend.png" alt="">
+                    <h3 class="mt-2 mb-2">500+</h3>
+                    <span>Successful Sales</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="statistics-card">
+                    <img src="img/customer.png" alt="">
+                    <h3 class="mt-2 mb-2">300+</h3>
+                    <span>Satisfied Clients</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="statistics-card">
+                    <img src="img/quality-service.png" alt="">
+                    <h3 class="mt-2 mb-2">10+</h3>
+                    <span>Years of Excellence</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="statistics-card">
+                    <img src="img/clipboard.png" alt="">
+                    <h3 class="mt-2 mb-2">1000+</h3>
+                    <span>Exclusive Listings</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container why-dubai pt-4 pb-4">
+        <h1 class="">Why Invest in Dubai</h1>
+        <p>Dubai has established itself as a hub for business, tourism, and real estate investment, offering a unique combination of benefits that make it an attractive destination for investors. Here are some compelling reasons to consider investing in Dubai's real estate market:</p>
+        <h3>1. Tax-Free Environment</h3>
+        <p>Dubai offers a tax-free environment, which means that investors can enjoy 100% repatriation of profits and no capital gains tax.
+            This allows investors to maximize their returns on investment and enjoy a higher ROI</p>
+        <h3>2. High Return on Investment (ROI)</h3>
+        <p>Dubai's real estate market has consistently offered high returns on investment, with some properties yielding up to 8-10% annual rental returns.
+            The city's growing economy, tourism, and business sectors drive demand for properties, ensuring a steady appreciation in property values.</p>
+        <h3>3. World-Class Infrastructure</h3>
+        <p>Dubai boasts world-class infrastructure, including two international airports, a modern transportation system, and state-of-the-art telecommunications.
+            The city's infrastructure is designed to support business and tourism, ensuring a high quality of life for residents and visitors.</p>
+        <h3>4. Security and Stability</h3>
+        <p>Dubai is known for its political stability and security, making it an attractive destination for investors.
+            The city has a low crime rate, and the government is committed to maintaining a safe and secure environment for residents and visitors</p>
+    </div>
+</div>
+<div class="section-two pt-5 pb-4">
+    <div class="container mb-4 services-cards">
+        <h1 class="mb-3">SERVICES</h1>
+        <div class="row gx-3 gy-3">
+            <div class="col-md-3">
+                <div class="service-card-1">
+                    <h3>Plot Management</h3>
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card-2">
+                    <h3>Property Consultancy</h3>
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card-3">
+                    <h3>Investment Advisory</h3>
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card-4">
+                    <h3>Legal Services</h3>
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container dubai-top pt-4 pb-3">
+        <h1 class="mb-3">DUBAI'S TOP REAL ESTATE AGENT</h1>
+        <p>Lase Properties, a leader among real estate agents in Dubai. We specialize in offering unparalleled services in the Dubai real estate market. Here's why Lase Properties should be your first choice when dealing with property in Dubai.</p>
+        <h3>Steadfast in a Dynamic Market: Lase Properties' Edge</h3>
+        <p>In the fast-paced world of Dubai real estate, Lase Properties has consistently proven its mettle. Our success as real estate agents in Dubai stems from our direct approach and our team's dedication to staying ahead of market trends.</p>
+        <h3>Setting Standards in Compliance and Trust</h3>
+        <p>As a trusted name in Dubai real estate, Lase Properties adheres strictly to RERA regulations, ensuring transparency and legal compliance in all dealings. Our commitment to ethical practices sets us apart in the property market in Dubai.</p>
+        <h3>Award-Winning Performance in Dubai Real Estate</h3>
+        <p>Our commitment to excellence in the Dubai property market has earned us numerous accolades. These awards underscore our position as leading real estate agents in Dubai, committed to integrity and innovation in the field.</p>
+    </div>
+</div>
+<div class="section-three pt-4 pb-4">
+    <h1 class="text-center mt-3">Developing Areas In Dubai</h1>
+    <p class="">Gated neighborhoods with a wide array of amenities</p>
+    <div class="container pt-4 pb-4 featured-cards">
+        <div class="row gx-5 gy-4">
+            <div class="col-md-4">
+                <div class="featured-card-1">
+                    <h3>Al Furjan</h3>
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                   <div class="featured-card-2">
+                    <h3>Dubai Land</h3>
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="featured-card-3">
+                    <h3>Dubai South</h3>
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="featured-card-4">
+                    <h3>Meydan City</h3>
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="featured-card-5">
+                    <h3>Jumeirah Village Circle</h3>
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="featured-card-6">
+                    <h3>Dubai Islands</h3>
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-four pt-5 pb-4">
+    <div class="container">
+        <h2 class="text-center mb-4">Sign up for our newsletter to stay up to date on the Dubai property market.</h2>
+        <form action="">
+            <input type="text" class="mb-4" name="" id="" placeholder="Email Address">
+            <button>SUBSCRIBE<i class="fa-solid fa-arrow-right-long"></i></button>
+        </form>
+    </div>
+</div>
+<footer style="background-color: black;">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md">
+             <img src="img/logo-2.png" alt="" class="logo-footer"> <small class="d-block my-3 text-muted">© Lase Properties 2024</small> 
+            </div>
+        <div class="col-12 col-md-3">
+          <h5><b>Company</b></h5>
+          <ul class="list-unstyled text-small">
+            <li>
+              <a class="text-muted" href="#">Cool stuff</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Random feature</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Team feature</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Stuff for developers</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Another one</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Last time</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-3">
+          <h5><b>Quick Links</b></h5>
+          <ul class="list-unstyled text-small">
+            <li>
+              <a class="text-muted" href="#">Resource</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Resource name</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Another resource</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Final resource</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-3">
+          <h5><b>Legal & Terms</b></h5>
+          <ul class="list-unstyled text-small">
+            <li>
+              <a class="text-muted" href="#">Business</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Education</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Government</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Gaming</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-3">
+          <h5><b>About</b></h5>
+          <ul class="list-unstyled text-small">
+            <li>
+              <a class="text-muted" href="#">Team</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Locations</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Privacy</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+    <script>
+        const nav = document.getElementById('nav');
+
+        function handleScroll() {
+          if (window.scrollY > 50) {
+            nav.classList.add('dark-nav');
+          } else {
+            nav.classList.remove('dark-nav');
+          }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
